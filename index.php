@@ -207,7 +207,95 @@
 
 
     echo"You have ordered {$quantity}x {$item}/s <br>";
-    echo"Your total is <b>\${$total}</b>";
+    echo"Your total is <b>\${$total}</b> <br> <br>";
 ?>
 
 <!--LESSON 5 MATH FUNCTIONS-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<p><b>LESSON 5 -MATH FUNCTIONS</b></p>
+    <form action ="index.php" method="post">
+    <label>x:</label>
+    <input type="text" name="x"> <br> <br>
+    <label>y:</label>
+    <input type="text" name="y"> <br> <br>
+    <label>z:</label>
+    <input type="text" name="z"> <br> <br>
+    <input type="submit" value="total">
+    </form>
+</body>
+</html>
+
+<?php
+    $x = $_POST["x"];
+    $y = $_POST["y"];
+    $z = $_POST["z"];
+    $total = null;
+
+    //always positive - $total = abs($x);
+
+    //round - $total = round($x);
+    //always round up - $total = ceil($x);
+    //always round down -$total = floor($x);
+
+    //squareroot - $total = sqrt($x);
+    //power - $total = pow($x, $y);
+
+    //max function - $total = max($x, $y, $z);
+    //min function - $total = min($x, $y, $z);
+
+    //pi function - $total = pi();
+
+    //random function - $total = rand();
+    //random fucntion with range - $total = rand(1, 7);
+
+
+    echo"<b>$total</b>";
+    //echo"<b>$x</b>";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action ="index.php" method="post">
+        <label>radius:</label>
+        <input type="text" name="radius"> <br> <br>
+        <input type="submit" value="calculate">
+    </form> 
+</body>
+</html>
+
+<?php
+    $radius = $_POST["radius"];
+    $circumference = null;
+    $area = null;
+    $volume = null;
+
+    $circumference = 2 * pi() * $radius;
+    $circumference = round ($circumference, 2);
+
+    $area = pi () * pow($radius, 2);
+    $area = round ($area, 2); 
+
+    $volume = 4/3 * pi() * pow($radius, 3);
+    $volume = round ($volume, 2);
+
+    echo"Circumference = <b>{$circumference} cm </b> <br>";
+    echo"Area = <b>{$area} cm² </b> <br>";
+    echo"Volume = <b>{$volume} cm³ </b> <br>";
+?>
+
+<!--LESSON 6 IF STATEMENTS-->
+
