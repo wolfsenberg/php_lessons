@@ -294,8 +294,43 @@
 
     echo"Circumference = <b>{$circumference} cm </b> <br>";
     echo"Area = <b>{$area} cm² </b> <br>";
-    echo"Volume = <b>{$volume} cm³ </b> <br>";
+    echo"Volume = <b>{$volume} cm³ </b> <br><br>";
 ?>
 
 <!--LESSON 6 IF STATEMENTS-->
+<?php
+    echo"<b>LESSON 6 - IF STATEMENTS</b><br><br>";
+    // if statement = if some condition is true, do something
+    //                if condition is false, don't do it
+
+    $age = 100;
+
+    if($age >= 100){
+        echo"<i>You are too old to enter this site</i><br><br>";
+    }
+    elseif ($age >= 18){
+        echo"<i>You may enter this site.</i><br><br>";
+    }
+
+    elseif($age <= 0){
+        echo"<i>That wasn't a valid age.</i><br><br>";
+    }
+
+    else{
+        echo"<i>You must be 18+ to enter.</i><br><br>";
+    }
+?>
+
+<?php
+    $adult = false;
+    
+     if($adult == true){
+        echo"<i>You may enter this site</i>";
+     }
+
+     else{
+        echo"<i>You must be an adult to enter</i>";
+     }
+?>
+
 
