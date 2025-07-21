@@ -322,9 +322,9 @@
 ?>
 
 <?php
-    $adult = false;
+    $adult = true;
     
-     if($adult == true){
+     if($adult){
         echo"<i>You may enter this site</i>";
      }
 
@@ -333,4 +333,333 @@
      }
 ?>
 
+<?php
+    $hours = 50;
+    $rate = 15;
+    $weekly_pay = null;
 
+    if($hours <=0){
+        $weekly_pay = 0;
+    }
+
+    elseif ($hours <=40){
+        $weekly_pay = $hours * $rate;
+    }
+    else{
+        $weekly_pay = ($rate * 40) + (($hours - 40) * ($rate * 1.5));
+    }
+    echo"<br><br><b>You made \${$weekly_pay} this week</b><br><br>";
+
+?>
+
+<!--LESSON 7 LOGICAL OPERATORS-->
+<?php
+    echo"<b>LESSON 7 - LOGICAL OPERATORS</b><br><br>";
+
+    // Logical operators = combine conditional statements 
+    // if (condition1 && condition2)
+
+
+    // && = True if both conditions are true (AND)
+    // || = True if at least one condition is true (OR)
+    //  ! = True if false. False if true. (NOT)
+    
+    $temp = 15;
+
+    if($temp >= 0 && $temp <= 30){ //&&
+        echo"The weather is good.<br><br>";
+    }
+    else{
+        echo"The weather is bad.<br><br>";
+    }
+?>
+
+<?php
+    $temp = 25;
+
+    if($temp < 0 || $temp > 30){ //
+        echo"The weather is bad.<br><br>";
+    }
+    else{
+        echo"The weather is good.<br><br>";
+    }
+?>
+
+<?php
+    $temp = 15;
+    $cloudy = false;
+
+    if($temp < 0 || $temp > 30){ //
+        echo"The weather is bad.<br>";
+    }
+    else{
+        echo"The weather is good.<br>";
+    }
+
+    if(!$cloudy){
+        echo"It's sunny.<br><br>";
+    }
+    else{
+        echo"It's cloudy.<br><br>";
+    }
+?>
+
+<?php
+    $age = 20;
+    $citizen = true;
+
+    if($age >= 18 && $citizen){
+        echo"You can vote.<br><br>";
+    }
+    else{
+        echo"You cannot vote.<br><br>";
+    }
+?>
+
+<!--binaliktad-->
+
+<?php
+    $age = 20;
+    $citizen = true;
+
+    if(!$age >= 18 && !$citizen){
+        echo"You cannot vote.<br><br>";
+    }
+    else{
+        echo"You can vote.<br><br>";
+    }
+?>
+
+ <?php
+    $child = true;
+    $senior = false;
+    $ticket = null;
+
+    if($child || $senior){
+        $ticket = 10;
+    }
+    else{
+        $ticket = 15;
+    }
+
+    echo"The ticket price is <b>\${$ticket}</b><br><br>";
+ ?>
+
+ <!--LESSON 8 SWITCHES-->
+
+ <?php
+    echo"<b>LESSON 8 - SWITCHES</b><br><br>";
+
+    //switch = replacement to using many elseif statements
+    //         more efficient, less code to write
+
+    $grade = "C";
+
+    //no switch
+    /*
+    if($grade == "A"){
+        echo"You did great";
+    }
+    elseif($grade == "B"){
+        echo"You did good";
+    }
+    elseif($grade == "C"){
+        echo"You did okay";
+    }
+    elseif($grade == "D"){
+        echo"You did poorly";
+    }
+    elseif($grade == "F"){
+        echo"You failed";
+    }
+    else{
+        echo"$grade is not a valid grade";
+    }
+    */
+
+    //yes switch
+
+    switch($grade){
+        case "A": 
+            echo"You did great<br><br>";
+            break;
+        case "B": 
+            echo"You did good<br><br>";
+            break;
+        case "C": 
+            echo"You did okay<br><br>";
+            break;
+        case "D": 
+            echo"You did poorly<br><br>";
+            break;
+        case "F": 
+            echo"You failed<br><br>";
+            break;
+        default:
+            echo"{$grade} is not valid<br><br>";
+    }
+?>
+
+<?php
+    $date = date("l");
+    
+    switch($date){
+        case "Monday";
+            echo"<b>I hate Mondays</b><br><br>";
+            break;
+        case "Tuesday";
+            echo"<b>It is Taco Tuesday!</b><br><br>";
+            break;
+        case "Wednesday";
+            echo"<b>The work week is half over!</b><br><br>";
+            break;
+        case "Thursday";
+            echo"<b>It's almost the weekend!</b><br><br>";
+            break;
+        case "Friday";
+            echo"<b>The weekend is here!</b><br><br>";
+            break;
+        case "Saturday";
+            echo"<b>Time to party!</b><br><br>";
+            break;
+        case "Sunday";
+            echo"<b>Time to relax</b><br><br>";
+            break;
+        default:
+            echo"<b>{$date} is not a day</b><br><br>";
+    }
+?>
+
+ <!--LESSON 9 FOR LOOPS-->
+
+ <?php
+    echo"<b>LESSON 9 - FOR LOOPS</b><br><br>";
+
+    // for loop = repeat some code a certain # of times
+
+    // index; condition ; increment/decrement
+    for($i = 1; $i <=10 ; $i++){
+        echo"$i <br>";
+    }
+
+?>
+<br>
+<?php
+    //incremented by 2
+
+    for($i = 2; $i <=10 ; $i+=2){
+        echo"$i <br>";
+    }
+?>
+<br>
+
+<?php
+    //decremented by 2
+
+    for($i = 10; $i > 0 ; $i-=2){
+        echo"$i <br>";
+    }
+?>
+<br><br>
+
+<!--INCREMENT-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        <label>Enter a number to count to:</label>
+        <input type="text" name ="counter"><br>
+        <input type="submit" value="start">
+    </form>
+</body>
+</html>
+
+<?php
+    $counter = $_POST["counter"];
+
+    for($i = 1; $i <= $counter; $i++)
+        echo $i .  "<br>";
+?>
+<br>
+<!--DECREMENT-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        <label>Enter a number to count down from:</label>
+        <input type="text" name ="counter"><br>
+        <input type="submit" value="start">
+    </form>
+</body>
+</html>
+
+<?php
+    $counter = $_POST["counter"];
+
+    for($i = $counter; $i > 0 ; $i--)
+        echo $i .  "<br>";
+?>
+<br>
+
+ <!--LESSON 10 WHILE LOOPS-->
+
+ <?php
+    echo"<b>LESSON 10 - WHILE LOOPS</b><br><br>";
+
+    //while loop = do some code infinitely while some
+    //             condition remains true
+
+    $counter =0;
+
+    while($counter <10){
+        $counter++;
+        echo $counter . "<br>";
+    }
+?>
+<br>
+
+<!--INFINITE LOOP CODE-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        <input type="submit" name="stop" value="stop">
+    </form>
+</body>
+</html>
+
+
+<?php
+/*
+    $seconds = 0;
+    $running = true;
+
+    while($running){
+
+        if(isset($_POST["stop"])){
+            $running = false;
+        }
+        else{
+            //wait 1 second
+            $seconds++;
+            echo $seconds . "<br>";
+        }
+    }
+*/        
+?>
