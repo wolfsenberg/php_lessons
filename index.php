@@ -1287,4 +1287,10 @@
 <?php
     echo"<br>";
     echo"<b>LESSON 20 - COOKIE</b><br><br>";
+
+    // cookie = Information about a user stored in a user's web-browser
+    //          targeted advertisements, browsing preferences, and
+    //          other non-sensitive data
+
+    
 ?>
