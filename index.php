@@ -663,3 +663,591 @@
     }
 */        
 ?>
+<br>
+
+ <!--LESSON 11 ARRAYS-->
+
+ <?php
+    echo"<b>LESSON 11 - ARRAYS</b><br><br>";
+
+    //array = "variable" whcih can hold more than one value at a time
+
+    $foods = array("apple", "orange", "banana", "coconut");
+
+    /*
+    echo $foods[0] . "<br>";
+    echo $foods[1] . "<br>";
+    echo $foods[2] . "<br>";
+    echo $foods[3] . "<br><br>";
+    */
+
+    //change in array
+    //$foods[0] = "pineapple";
+
+    //array push (add)
+    //array_push($foods, "pinapple", "kiwi");
+
+    //array_pop (remove last)
+    //array_pop($foods);
+
+    //array_shift (remove first)
+    //array_shift($foods);
+
+    //array_reverse (reverse)
+    /*
+    $reversed_foods = array_reverse($foods);
+    
+    foreach($reversed_foods as $food){
+        echo $food . "<br>";
+    }
+    echo"<br>";
+    */
+
+    //count
+    echo count($foods) . "<br><br>";
+
+
+    //for each loop
+
+    foreach($foods as $food){
+        echo $food . "<br>";
+    }
+    echo"<br>";
+?>
+
+ <!--LESSON 12 ASSOCIATIVE ARRAYS-->
+
+ <?php
+    echo"<b>LESSON 12 - ASSOCIATIVE ARRAYS</b><br><br>";
+
+    //associative array = an array made of key=>value pairs
+
+    //countries => capitals
+    //id => username
+    //item => price
+
+    $capitals = array("USA"=>"Washington D.C.", 
+                      "Japan"=>"Tokyo", 
+                      "South Korea"=>"Seoul", 
+                      "India"=>"New Delhi");
+    
+    //update key value pair
+    //$capitals["USA"] = "Las Vegas";
+
+    //add new key value pair
+    //$capitals["China"] = "Beijing";
+
+    //remove last
+    //array_pop($capitals);
+
+    //remove first
+    //array_shift($capitals);
+
+    //echo $capitals["Japan"];
+
+    /*all keys
+    $keys = array_keys($capitals);
+
+    foreach($keys as $key){
+        echo"{$key} <br>";
+    }
+    echo"<br>";
+    */
+
+    /*values
+    $values = array_values($capitals);
+
+    foreach($values as $value){
+        echo"{$value} <br>";
+    }
+    echo"<br>";
+    */
+
+    /*array flip
+    $capitals = array_flip($capitals);
+
+    foreach($capitals as $key=>$value){
+        echo"{$key} = {$value} <br>";
+    }
+    echo"<br>";
+    */
+
+    //reverse order
+    //$capitals = array_reverse($capitals);
+    
+    //count
+    //echo count($capitals); 
+    //echo"<br><br>";
+
+    foreach($capitals as $key=>$value){
+        echo"{$key} = {$value} <br>";
+    }
+    echo"<br><br>";
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        <label>Enter a country</label><br>
+        <input type ="text" name="country"><br>
+        <input type="submit">
+    </form>
+</body>
+</html>
+
+<?php
+    $capitals = array("USA"=>"Washington D.C.", 
+                      "Japan"=>"Tokyo", 
+                      "South Korea"=>"Seoul", 
+                      "India"=>"New Delhi");
+
+    $capital = $capitals[ $_POST["country"]];
+    
+    echo"The capital is <b>{$capital}</b>";
+    echo"<br><br>";
+?>
+
+ <!--LESSON 13 isset() and empty()-->
+
+ <?php
+    echo"<b>LESSON 13 - ISSET() and EMPTY()</b><br><br>";
+
+    //isset() = Returns TRUE if a variable is declared and not null
+    //empty() = Returns TRUE if a variable is not declared, false, null, ""
+
+    $username = "wolfgang";
+
+    if(isset($username)){
+        echo"This variable is set.";
+    }
+    else{
+        echo"This variable is NOT set.";
+    }
+
+    echo"<br><br>";
+
+    if(empty($username)){
+        echo"This variable is empty.";
+    }
+    else{
+        echo"This variable is NOT empty.";
+    }
+
+    echo"<br><br>";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        <label>username: </label>
+        <input type ="text" name ="username"> <br>
+        <label>password: </label>
+        <input type ="password" name ="password"> <br>
+        <input type="submit" name="login" value="Log In">
+    </form>
+</body>
+</html>
+
+<?php
+    
+    //remove the comment tags if you want to test this
+    //foreach($_POST as $key=>$value){
+    //    echo"{$key} = {$value} <br>";
+    //}
+
+
+    if(isset($_POST["login"])){
+        
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+
+        if(empty($username)){
+            echo"<b>Username is missing</b><br>";
+        }
+        elseif(empty($password)){
+            echo"<b>Password is missing</b><br>";
+        }
+        else{
+            echo"<b>Hello {$username}</b><br><br>";
+        }
+    }
+?>
+
+ <!--LESSON 14 RADIO BUTTONS-->
+
+<?php
+    echo"<b>LESSON 14 - RADIO BUTTONS</b><br><br>";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        <input type="radio" name="credit_card" value="Visa">
+        Visa<br>
+        <input type="radio" name="credit_card" value="Mastercard">
+        Mastercard<br>
+        <input type="radio" name="credit_card" value="American Express">
+        American Express<br><br>
+        <input type="submit" name="confirm" value="confirm">
+    </form>
+</body>
+</html>
+
+<?php
+    if(isset($_POST["confirm"])){
+
+        $credit_card = null;
+        
+        //MORE EFFICIENT (SWITCH)
+        if(isset($_POST["credit_card"])){
+            $credit_card = $_POST["credit_card"];
+        }
+
+        switch($credit_card){
+            case "Visa":
+                echo"You selected Visa<br><br>";
+                break;
+            case "Mastercard":
+                echo"You selected Mastercard<br><br>";
+                break;
+            case "American Express":
+                echo"You selected American Express<br><br>";
+                break;
+            default:
+                echo"Please make a selection<br><br>";
+        }
+
+        /* LESS EFFICIENT
+        if($credit_card == "Visa"){
+            echo"You selected Visa";
+        }
+        elseif($credit_card == "Mastercard"){
+            echo"You selected Mastercard";
+        }
+        elseif($credit_card == "American Express"){
+            echo"You selected American Express";
+        }
+        else{
+            echo"Please make a selection";
+        }
+        */
+
+        //-------------------------------------------//
+
+        /*
+        if(isset($_POST["credit_card"])){
+            $credit_card = $_POST["credit_card"];
+            echo $credit_card;
+        }
+        else{
+            echo"Please make a selection";
+        }
+        */
+
+        //$credit_card = $_POST["credit_card"];
+        //echo $credit_card;
+    } 
+?>
+
+ <!--LESSON 15 CHECKBOXES-->
+
+<?php
+    echo"<b>LESSON 15 - CHECKBOXES</b><br><br>";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        <input type ="checkbox" name="pizza" value="Pizza">
+        Pizza<br>
+        <input type ="checkbox" name="hamburger" value="Hamburger">
+        Hamburger<br>
+        <input type ="checkbox" name="hotdog" value="Hotdog">
+        Hotdog<br>
+        <input type ="checkbox" name="taco" value="Taco">
+        Taco<br><br>
+        <input type="submit" name="submit">
+    </form>
+</body>
+</html>
+
+<?php
+    
+    if(isset($_POST["submit"])){
+
+        if(isset($_POST["pizza"])){
+            echo"You like pizza!<br><br>";
+        }
+        if(isset($_POST["hamburger"])){
+            echo"You like hamburger!<br><br>";
+        }
+        if(isset($_POST["hotdog"])){
+            echo"You like hotdog!<br><br>";
+        }
+        if(isset($_POST["taco"])){
+            echo"You like taco!<br><br>";
+        }
+        if(empty($_POST["pizza"])){
+            echo"You DON'T like pizza!<br><br>";
+        }
+        if(empty($_POST["hamburger"])){
+            echo"You DON'T like hamburger!<br><br>";
+        }
+        if(empty($_POST["hotdog"])){
+            echo"You DON'T like hotdog!<br><br>";
+        }
+        if(empty($_POST["taco"])){
+            echo"You DON'T like taco!<br><br>";
+        }
+    }
+?> 
+
+<!--arrayed-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        <input type ="checkbox" name="foods[]" value="Pizza">
+        Pizza<br>
+        <input type ="checkbox" name="foods[]" value="Hamburger">
+        Hamburger<br>
+        <input type ="checkbox" name="foods[]" value="Hotdog">
+        Hotdog<br>
+        <input type ="checkbox" name="foods[]" value="Taco">
+        Taco<br><br>
+        <input type="submit" name="submit">
+    </form>
+</body>
+</html>
+
+<?php
+    
+    if(isset($_POST["submit"])){
+
+       $foods = $_POST["foods"];
+
+       foreach($foods as $food){
+            echo $food . "<br><br>";
+       }
+    }
+?> 
+
+ <!--LESSON 16 FUNCTIONS-->
+
+<?php
+    echo"<b>LESSON 16 - FUNCTIONS</b><br><br>";
+    
+    //function = write some code once, reuse when you need it
+    //           type () after function name is invoke
+    //           ex. add() subtract() multiply() divide()
+
+    /*
+    function happy_birthday(){
+        echo"Happy Birthday dear you! <br>";
+        echo"Happy Birthday to you! <br>";
+        echo"Happy Birthday dear you! <br>";
+        echo"You are x years old! <br>";
+    }
+
+    happy_birthday();
+    happy_birthday();
+    happy_birthday();
+    */
+
+    function happy_birthday($first_name, $age){
+        echo"Happy Birthday {$first_name}! <br>";
+        echo"Happy Birthday to you! <br>";
+        echo"Happy Birthday {$first_name}! <br>";
+        echo"You are {$age} years old! <br><br>";
+
+    }
+
+    happy_birthday("Spongebob", 30);
+    happy_birthday("Patrick", 35);
+    happy_birthday("Squidward", 45);
+?>
+
+<?php
+    function is_even($number){
+        return $number % 2;
+        
+    }
+
+    echo is_even(10);
+    echo"<br><br>";    
+?>
+
+<?php
+    function hypotenuse(float $a, float $b){
+        $c = sqrt($a ** 2 + $b ** 2);
+        return $c;
+    }
+
+    echo hypotenuse(4, 5) . "<br><br>";
+?>
+
+<!--LESSON 17 STRING FUNCTIONS-->
+
+<?php
+    echo"<b>LESSON 17 - STRING FUNCTIONS</b><br><br>";
+
+    $username = array("Wolfgang", "D.", "Heisenberg");
+    //$username = "Wolfgang D. Heisenberg";
+    $phone = "123-456-7890";
+
+    //lowercase 
+    //$username = strtolower($username);
+
+    //uppercase
+    //$username = strtoupper($username);
+
+    //trim
+    //$username = trim($username);
+
+    //pad
+    //$username = str_pad($username, 20, "0");
+
+    //replace
+    //$phone = str_replace("-", "", $phone);
+
+    //reverse
+    //$username = strrev($username);
+
+    //shuffle
+    //$username = str_shuffle($username);
+
+    //compare
+    //$equals  = strcmp($username, "Wolfgang Heisenberg");
+
+    //string length
+    //$count = strlen($phone);
+
+    //position
+    //$index = strpos($username, " " );
+
+    //substring
+    //$firstname = substr($username, 0, 8);
+    //$lastname = substr($username, 9);
+
+    /*
+    //explode
+    $fullname = explode(" ", $username);
+
+    foreach($fullname as $name){
+        echo $name . "<br>";
+    }
+    */
+
+    //implode
+     $username = implode(" ", $username);
+
+    echo $username . "<br><br>";
+   
+
+    //echo $username . "<br><br>";
+    //echo $phone . "<br><br>";
+    //echo $equals . "<br><br>";
+    //echo $count. "<br><br>";
+    //echo $index . "<br><br>";
+    //echo $firstname . "<br><br>";
+    //echo $lastname . "<br><br>";
+?>
+
+<!--LESSON 18 SANITIZE/VALIDATE INPUT-->
+
+<?php
+    echo"<b>LESSON 18 - SANITIZE/VALIDATE INPUT</b><br><br>";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        username: <br>
+        <input type="text" name="username"><br><br>
+        age: <br>
+        <input type="text" name="age"><br><br>
+        email: <br>
+        <input type="text" name="email"><br><br>
+        <input type="submit" name="login" value="login"><br>
+    </form>
+</body>
+</html>
+
+<?php
+    /*SANITIZE
+    if(isset($_POST["login"])){
+
+        $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $age = filter_input(INPUT_POST, "age", FILTER_SANITIZE_NUMBER_INT);
+
+        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+        
+        echo "Hello {$username} <br><br>";
+        echo "You are {$age} years old <br><br>";
+        echo "Your email is: {$email} <br><br>";
+    }
+    */
+
+    if(isset($_POST["login"])){
+
+        $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $age = filter_input(INPUT_POST, "age", FILTER_VALIDATE_INT);
+
+        $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+
+        echo "Hello {$username} <br><br>";
+        
+        if(empty($age)){
+
+            echo"That number wasn't valid<br><br>";
+        }
+        else{
+            echo"You are $age years old<br><br>";
+        }
+
+        if(empty($email)){
+            echo"That email wasn't valid<br><br>";
+        }
+        else{
+            echo"Your email is: {$email}<br><br>";
+        }
+    }
+?>
