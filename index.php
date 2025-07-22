@@ -1234,7 +1234,7 @@
         $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 
         echo "Hello {$username} <br><br>";
-        
+
         if(empty($age)){
 
             echo"That number wasn't valid<br><br>";
@@ -1250,4 +1250,41 @@
             echo"Your email is: {$email}<br><br>";
         }
     }
+?>
+
+<!--LESSON 19 INCLUDE()-->
+
+<?php
+    echo"<b>LESSON 19 - INCLUDE()</b><br><br>";
+
+    // include() = Copies the content of a file (php/html/text)
+    //             and includes it in your php file.
+    //             Sections of our website become reusable
+    //             Changes only need to be made in one place
+
+    include("header.html");
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    This is the Home page <br>
+    Stuff about your Home page can go here <br>
+</body>
+</html>
+
+<?php
+    include("footer.html");
+?>
+
+<!--LESSON 20 COOKIE-->
+
+<?php
+    echo"<br>";
+    echo"<b>LESSON 20 - COOKIE</b><br><br>";
 ?>
