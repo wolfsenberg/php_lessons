@@ -32,7 +32,6 @@
 
 
 
-
 <!--LESSON 1 INTRODUCTION-->
 
 <?php
@@ -1510,4 +1509,71 @@
 
 <?php
     echo"<br>";
-    echo"<b>LESSON 25 - PHPMyADMIN CREATE A TABLE</b><br><br>";
+    echo"<b>LESSON 25 - PHPMYADMIN CREATE A TABLE</b><br><br>";
+?>
+
+<!--LESSON 26 PHP INSERT INTO MYSQL DATABASE-->
+
+<?php
+    echo"<br>";
+    echo"<b>LESSON 26 - PHP INSERT INTO MYSQL DATABASE</b><br><br>";
+
+    include("database.php");
+
+    $username = "Krabs";
+    $passwords = "Money69";
+    $hash =password_hash($passwords, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO users (user, passwords)
+            VALUES ('$username', '$hash')";
+
+    if (mysqli_query($conn, $sql)) {
+        echo "User is registered. <br><br>";
+    } 
+    else {
+        echo "Could not register user. Error: " . mysqli_error($conn) . "<br><br>";
+    }
+
+    mysqli_close($conn);
+?>
+
+
+<!--LESSON 27 PHP QUERY MYSQL DATABASE-->
+
+<?php
+    echo"<br>";
+    echo"<b>LESSON 27 - PHP QUERY MYSQL DATABASE</b><br><br>";
+
+    include("database.php");
+
+    /*
+    $sql = "SELECT * FROM users WHERE user = 'Squidward' ";
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_assoc($result);
+        echo $row["id"] . "<br>";
+        echo $row["user"] . "<br>";
+        echo $row["reg_date"] . "<br>";
+    }
+    */
+
+    //ALL USER
+
+    $sql = "SELECT * FROM users";
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_assoc($result)){
+            echo $row["id"] . "<br>";
+            echo $row["user"] . "<br>";
+            echo $row["reg_date"] . "<br>";
+        }
+    }
+    else{
+        echo"No user found. <br><br>";
+    }
+
+
+    mysqli_close($conn);
+?>
