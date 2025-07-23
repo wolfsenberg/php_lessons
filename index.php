@@ -1,3 +1,38 @@
+<!--LESSON 21 SESSION-->
+
+<?php
+    session_start();
+    //header("Location: home.php");
+?>
+
+
+<!--LESSON 20--COOKIE-->
+<?php
+    echo"<b>LESSON 20 - COOKIE</b><br><br>";
+
+    setcookie("fav_food", "pizza", time() + (86400 * 2), "/");
+    setcookie("fav_drink", "coffee", time() + (86400 * 3), "/");
+    setcookie("fav_dessert", "ice cream", time() + (86400 * 4), "/");
+    /*
+    foreach($_COOKIE as $key => $value){
+        echo"{$key} = {$value} <br>";
+    }
+    */
+
+    if(isset($_COOKIE["fav_food"])){
+        echo"BUY SOME {$_COOKIE["fav_food"]} !!!";
+    }
+    else{
+        echo"I don't know your favorite food";
+    }
+
+    echo"<br><br>";
+
+?>
+
+
+
+
 <!--LESSON 1 INTRODUCTION-->
 
 <?php
@@ -1287,10 +1322,161 @@
 <?php
     echo"<br>";
     echo"<b>LESSON 20 - COOKIE</b><br><br>";
+    echo"output at the very top of the file<br><br>";
 
     // cookie = Information about a user stored in a user's web-browser
     //          targeted advertisements, browsing preferences, and
     //          other non-sensitive data
 
+    //MUST BE AT THE VERY TOP OF THE FILE BEFORE ANY OUTPUT
+    //setcookie("fav_food", "pizza", time() + (86400 * 2), "/");
+    //setcookie("fav_drink", "coffee", time() + (86400 * 3), "/");
+    //setcookie("fav_dessert", "ice cream", time() + (86400 * 4), "/");
+
+    //DELETE A COOKIE 
+    //setcookie("fav_food", "pizza", time() - 0 , "/");
     
+    /*
+    foreach($_COOKIE as $key => $value){
+        echo"{$key} = {$value} <br>";
+    }
+    
+
+    if(isset($_COOKIE["fav_food"])){
+        echo"BUY SOME {$_COOKIE["fav_food"]} !!!";
+    }
+    else{
+        echo"I don't know your favorite food";
+    }
+
+    echo"<br><br>";
+    */
+?>  
+
+<!--LESSON 21 SESSION-->
+
+<?php
+    echo"<br>";
+    echo"<b>LESSON 21 - SESSION</b><br><br>";
+
+    //session = SGB used to store information on a user
+    //          to be used accross multiple pages.
+    //          A user is assigned a session-id
+    //          ex. login credentials
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method ="post">
+        username: <br>
+        <input type="text" name="username">
+        <br>
+        password: <br>
+        <input type="password" name="password">
+        <br><br>
+        <input type="submit" name="login" value="login">
+    </form>
+</body>
+</html>
+
+<?php
+    /*
+    $_SESSION["username"] = "wolfsenberg";
+    $_SESSION["password"] = "1234567";
+
+    echo $_SESSION["username"] . "<br>";
+    echo $_SESSION["password"] . "<br>";
+    */
+
+    //LOGIN
+    /*
+    if(isset($_POST["login"])){
+
+
+
+        if(!empty($_POST["username"]) && !empty($_POST["password"])){
+            
+            $_SESSION["username"] = $_POST["username"];
+            $_SESSION["password"] = $_POST["password"];
+            
+            //echo $_SESSION["username"] . "<br>";
+            //echo $_SESSION["password"] . "<br>";
+
+            header("Location: home.php");
+        }
+        else{
+            echo"Missing username/password <br><br>";
+        }
+    }
+    */
+?>
+
+<!--LESSON 22 SERVER-->
+
+<?php
+    echo"<br>";
+    echo"<b>LESSON 22 - SERVER</b><br><br>";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action = "<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+        username: <br>
+        <input type="text" name="username">
+        <input type="submit">
+    </form>
+</body>
+</html>
+
+
+<?php
+    //$_SERVER = SGB that contains headers, paths, and script locations.
+    //           The entries in this array are created by the web server.
+    //           Shows nearly everything you need to know about the current web page env.
+
+    /*
+    foreach($_SERVER as $key => $value){
+        echo"{$key} = {$value} <br>";
+    }
+    */
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        echo"HELLO";
+    }
+    
+?>
+
+<!--LESSON 23 HASHING-->
+
+<?php
+    echo"<br><br>";
+    echo"<b>LESSON 23 - HASHING</b><br><br>";
+
+    //hashing = transforming sensitive data (password)
+    //          into letters, numbers, and/or symbols
+    //          via a mathematical process. (similar to encryption)
+    //          Hides the original data from 3rd parties.
+
+    $password = "1234567";
+
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+
+    if(password_verify("1234567", $hash)){
+        echo"You are logged in!<br><br>";
+    }
+    else{
+        echo"Incorrect password!<br><br>";
+    }
 ?>
