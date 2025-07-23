@@ -1287,10 +1287,10 @@
     }
 ?>
 
-<!--LESSON 19 INCLUDE()-->
+<!--LESSON 19 INCLUDE-->
 
 <?php
-    echo"<b>LESSON 19 - INCLUDE()</b><br><br>";
+    echo"<b>LESSON 19 - INCLUDE</b><br><br>";
 
     // include() = Copies the content of a file (php/html/text)
     //             and includes it in your php file.
@@ -1480,3 +1480,34 @@
         echo"Incorrect password!<br><br>";
     }
 ?>
+
+<!--LESSON 24 PHP CONNECT TO MYSQL DATABASE-->
+
+<?php
+    echo"<br>";
+    echo"<b>LESSON 24 - PHP CONNECT TO MYSQL DATABASE</b><br><br>";
+
+    // 1. MySQLi Extension (BASIC)
+    // 2. PDO (PHP Data Objects) (INTERMEDIATE)
+
+    include("database.php");
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hello <br><br>
+</body>
+</html>
+
+<!--LESSON 25 PHPMYADMIN CREATE A TABLE-->
+
+<?php
+    echo"<br>";
+    echo"<b>LESSON 25 - PHPMyADMIN CREATE A TABLE</b><br><br>";
